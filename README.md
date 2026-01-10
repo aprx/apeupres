@@ -30,7 +30,7 @@ LOGIN=prod-login
 PASSWORD=prod-password
 ```
 
-byB running  `apeupres`, this will generates a shell function for you in `~/.apeupresrc`
+by running  `apeupres`, this will generates a shell function for you in `~/.apeupresrc`
 
 ```
 conf_production() {
