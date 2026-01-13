@@ -57,11 +57,11 @@ $ echo $LOGIN $PASSWORD
 
 If you store secrets in a shared vault (for example, 1Password), you can reference them directly:
 ```
-PASSWORD=`op item get prod-password --format json | jq .id`
+PASSWORD=$(op item get prod-password --format json | jq .id)
 ```
 or gopass
 ```
-PASSWORD=`gopas show /path/to/secret`
+PASSWORD=$(gopas show /path/to/secret)
 ```
 
 This way, sensitive values never need to be stored in plain text.
