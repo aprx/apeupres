@@ -23,7 +23,10 @@ func sectionToFn(section string, params *map[string]string, keys *[]string) stri
 }
 
 func ProcessIniFile(iniFileName string) string {
-	iniFile, err := ini.Load(iniFileName)
+	lOptions := ini.LoadOptions{
+		PreserveSurroundedQuote: true,
+	}
+	iniFile, err := ini.LoadSources(lOptions, iniFileName)
 	if err != nil {
 		panic(err)
 	}
