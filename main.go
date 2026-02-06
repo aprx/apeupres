@@ -20,19 +20,26 @@ const (
 )
 
 var clOptions struct {
-	configPath string
-	output     string
+	configPath  string
+	output      string
+	showCurrent bool
 }
 
 func init() {
 	flag.StringVar(&clOptions.configPath, "config", os.ExpandEnv(defaultConfigPath), "Path to configuration")
 	flag.StringVar(&clOptions.output, "output", os.ExpandEnv(defaultOutputPath), "Output path")
+	flag.BoolVar(&clOptions.showCurrent, "current", false, "Show active config if any")
 }
 
 func main() {
 	data := []string{fixtures}
 	sources := []string{}
 	flag.Parse()
+
+	if clOptions.showCurrent {
+		_ = utils.ShowActiveConfig()
+		return
+	}
 
 	configurationFiles := config.GatherConfiguration(clOptions.configPath)
 	for _, v := range configurationFiles {

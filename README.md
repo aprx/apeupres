@@ -111,5 +111,17 @@ variable = "APEUPRES_NAME"
 format = '\[|[$env_value](red)|\] '
 ```
 
+## Command helper
 
+Running `apeupres -current` will show the currently activated configuration and the environment variable currently set.
+
+```sh
+$ apeupres -current
+No active configuration
+$ conf_production
+$ apeupres -current
+Active configuration :  production
+LOGIN: admin
+PASSWORD: coucou4242
+```
 
